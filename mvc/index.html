@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>mvc</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    .module {
+      width: 400px;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .module + .module {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="user-info" class="module"></div>
+
+  <div id="message" class="module"></div>
+
+  <script src="./base.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
