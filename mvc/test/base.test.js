@@ -6,10 +6,17 @@ const baseModel = new BaseModel(initData)
 const baseController = new BaseController({
   model: baseModel
 })
-// const baseView = new BaseView({
-//   el: '#app',
-//   controller: baseController
-// })
+
+const divElem = document.createElement('div');
+divElem.id = 'app';
+document.body.appendChild(divElem);
+const baseView = new BaseView({
+  el: '#app',
+  controller: baseController,
+  render(data) {
+    return `name:${data.name}, age: ${data.age}`
+  }
+})
 
 describe('BaseModel', () => {
   it('接收一个对象模型数据作为初始化数据', () => {
@@ -29,12 +36,12 @@ describe('BaseController', () => {
   })
 })
 
-// describe('BaseView', () => {
-//   it('view 会被添加到 controller 中', () => {
-//     expect(baseController._view).to.be.equal(baseView)
-//   })
-//   it('数据改变时会触发 view 的render方法', () => {
-//     baseController.update({ name: 'yeyiyu' })
-//     expect()
-//   })
-// })
+describe('BaseView', () => {
+  it('view 会被添加到 controller 中', () => {
+    expect(baseController._view).to.be.equal(baseView)
+  })
+  it('数据改变时会触发 view 的render方法', () => {
+    baseController.update({ name: 'yeyiyu' })
+    expect(document.getElementById('app').innerHTML).to.be.equal(baseView.render(baseModel.data))
+  })
+})
