@@ -7,8 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha",
-    "dev-test": "npx parcel build test/* --no-cache --no-minify & npx karma start --single-run"
+    "mocha-test": "./node_modules/.bin/mocha",
+    "test": "parcel build test/* --no-cache --no-minify & karma start --single-run",
+    "test:watch": "parcel watch test/* --no-cache & karma start"
   },
   "keywords": [],
   "author": "",
